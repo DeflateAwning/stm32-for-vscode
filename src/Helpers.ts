@@ -22,16 +22,6 @@ export function fsPathToPosix(fsPath: string, escapeSpaces?: boolean): string {
   return posixPath;
 }
 
-export function convertToolPathToAbsolutePath(toolPath: string, dir?: boolean): string {
-  const absolutePAth = shelljs.which(toolPath);
-  let returnPath = absolutePAth;
-  returnPath = fsPathToPosix(returnPath);
-  if (dir) {
-    returnPath = path.posix.dirname(returnPath);
-  }
-  return returnPath;
-}
-
 /**
  * Helper function for writing a file in the workspace. Returns a promise
  * @param workspacePathUri Path to the active workspace
