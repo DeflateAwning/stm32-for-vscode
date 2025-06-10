@@ -7,9 +7,12 @@
   - Full support for CubeIDE imports.
   - Add option to select installation location for the tooling.
 
-## [3.2.14] - 2025-02-25
+## [3.2.14] - 2025-06-25
 ### Added
   - Passed DEBUG definition flag on debug build.
+
+### Fixed
+  - Issue #226 Windows line length issue.
 
 ## [3.2.13] - 2025-02-04
 ### Fixed
