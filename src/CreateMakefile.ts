@@ -399,9 +399,14 @@ $(RELEASE_DIRECTORY)/%.o: %.S ${makefileName} | $(RELEASE_DIRECTORY)
 
 $(RELEASE_DIRECTORY)/%.o: %.sx ${makefileName} | $(RELEASE_DIRECTORY)
 \t$(AS) -c $(ASFLAGS) $< -o $@
+#defines a new line
+define \\n
+
+
+endef
 
 $(RELEASE_DIRECTORY)/$(TARGET).elf: $(OBJECTS) ${makefileName} | $(RELEASE_DIRECTORY)
-\t@echo $(OBJECTS) > $@.in
+\t$(file >$@.in,$(foreach obj,$(OBJECTS),$(obj)$(\\n)))
 \t$(${makeInfo.language === 'C' ? 'CC' : 'CXX'}) @$@.in $(LDFLAGS) -o $@
 \t$(SZ) $@
 
